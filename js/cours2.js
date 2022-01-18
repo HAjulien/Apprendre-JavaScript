@@ -15,3 +15,16 @@ while (number < 10){
 // for(let iter = 0; iter <10; iter++){
 //     alert("iteration n°" + iter);
 // } même chose
+
+let sayHello3 = (function(){
+    return "Hello World";
+})();
+
+alert(sayHello3);
+
+let calcul1 =(function(){
+                let var1 = 2, var2 = 3;
+                return var1*var2;
+            })();
+
+alert(calcul1);
