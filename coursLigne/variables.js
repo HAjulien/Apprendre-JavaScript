@@ -57,8 +57,70 @@ total *=2   //raccourci multiplication
 console.log(total);
 
 let total2 = 2;
-let x = 4;
+let z = 4;
 
-total2 = ++x;
+total2 = ++z;
 
 console.log(total2);
+
+
+//les comparateurs
+
+let x = 2;
+let y = 5;
+
+if( x >= y){
+    console.log("x est inférieur à y")
+} else{
+    console.log("x est supérieur à y")    
+};
+
+let a = 7;
+
+if( x === a ) {              //on teste si x est false anec if(!x)
+    console.log("true !")    //egalité === pour type et contenu jamais avec =,  == juste contenue.
+}else if (x == a){
+    console.log("x et a sont egaux en valeur")
+}else{
+    //console.log( x +" et "+ a+" ne sont pas du tout egaux");
+    console.log(`${x} et ${a} ne sont pas du tout egaux`);
+}
+
+
+
+//function
+//la function est déclaré elle ne se joue pas
+function faireQuelqueChose(){
+    console.log("je fais un truc");
+    // return permet de terminer la fonction
+    console.log("trop cool");
+}
+
+//on appelle la function pour la joué
+faireQuelqueChose();
+
+
+//les fonction flêché
+
+const faireUneTache = (tache) => {    //() il y a une valeur dynamique porte entré que l'on peur modifié  tache set juste un parametre
+    console.log("je fais : " + tache);
+};
+
+faireUneTache('les course');     // (tache) est remplacé par 'les course'  
+faireUneTache('le ménage');     // (tache) est remplacé par 'le ménage'
+
+function calc(x, y){         //return retourne valeur
+   return x + y;
+}
+
+//pour que la fonction joue toute seule pas besoin de l'appeller
+(function () {
+    console.log(`Je me joue toute seule` );
+})();
+//fonction anomyne
+
+//deuxieme facon en flêché
+
+(() => {
+    console.log("je me joue aussi toute seule");
+})();
