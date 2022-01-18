@@ -92,7 +92,7 @@ if( x === a ) {              //on teste si x est false anec if(!x)
 //la function est déclaré elle ne se joue pas
 function faireQuelqueChose(){
     console.log("je fais un truc");
-    // return permet de terminer la fonction
+    // return            permet de terminer la fonction
     console.log("trop cool");
 }
 
@@ -124,3 +124,47 @@ function calc(x, y){         //return retourne valeur
 (() => {
     console.log("je me joue aussi toute seule");
 })();
+
+
+
+
+
+//projet calculatrice
+
+
+let result = 0;
+
+function addition(c){
+    result += c;  //on incrémente total et ensuite  il faut stocké le total
+    return result;
+}
+
+
+function soustration(c){
+    result -= c;  //on soustrait au total  et ensuite il faut stocké le total
+    return result;
+}
+
+
+function division(c){
+    if (result === 0 ){                  //pour ne pas avoir 0 quand on commence la division
+        return (result = c) ;
+        } else{  
+        result /= c;  //on divise au total  et ensuite il faut stocké le total
+        return result;
+        }
+    }
+
+
+function multiplication(c){
+    if (result === 0 ){                  //pour ne pas avoir 0 quand on commence la multiplication
+        return (result = c) ;
+        } else{   
+        result *= c;  //on multiplie au total ensuite il faut stocké le total
+        return result;
+        }
+    }
+
+function reset() {
+    result = 0;
+}     
