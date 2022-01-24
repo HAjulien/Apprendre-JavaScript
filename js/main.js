@@ -18,3 +18,5 @@ console.log(result);
 document.open();
 document.write("<div id='monid'>" + result + "</div>");
 ducument.close();
+
+
