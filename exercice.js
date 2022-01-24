@@ -15,7 +15,7 @@
 let age = "";
 age = parseInt(prompt('quel est votre age'));
 
-if (age < 18 é){
+if (age < 18 ){
     alert('vous avez fait une erreur')
     age = parseInt(prompt('quel est votre age'));
 } else{
