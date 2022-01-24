@@ -45,14 +45,14 @@ let userage = "";
 do{
     userage = parseInt(prompt("votre age"));
     if ( userage >= 18 && userage < 120){
-        alert("age valide : vous etes majeur")
+        alert("age valide : vous etes majeur");
     }
     else if (userage > 0 && userage < 18){
-        alert("vous etes mineur")
+        alert("vous etes mineur");
     }
     else{
-        alert("age non valide")
+        alert("age non valide");
     }
-}while ( isNaN(userage) || userage < 0 || userage > 120 );
+}while ( isNaN(userage) || userage <= 0 || userage > 120 );
 
 alert("Vous avez " + userage + " age");
