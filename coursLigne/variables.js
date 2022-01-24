@@ -102,7 +102,7 @@ faireQuelqueChose();
 
 //les fonction flêché
 
-const faireUneTache = (tache) => {    //() il y a une valeur dynamique porte entré que l'on peur modifié  tache set juste un parametre
+const faireUneTache = (tache) => {    //() il y a une valeur dynamique porte entré que l'on peur modifié  tache est juste un parametre
     console.log("je fais : " + tache);
 };
 
