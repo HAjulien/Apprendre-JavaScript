@@ -22,4 +22,20 @@ p{
     visibility: hidden;
     width: 240px;
     margin: 10px auto 0;
+    opacity: 0;
+    transition: .6s;
+    transform: translateX(-200px);
+
+}
+
+.question-clicked{
+    background: rgb(172, 11, 158);
+    border-radius: 40px;
+    border: 6px dashed pink;
+}
+
+.show-response{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
 }
