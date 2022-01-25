@@ -14,6 +14,3 @@ for(let index=0, items=queryAll.length; index < items; index++){
 }
 
 
-let link = document.getElementById('mylink');
-
-let hyperlien = link.href, hyperlien = "ww.google.fr";
