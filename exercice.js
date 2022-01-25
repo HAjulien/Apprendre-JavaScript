@@ -17,7 +17,6 @@
 
 let age = "";
 age = parseInt(prompt('quel est votre age'));
-
 if (age < 18 || userage > 120){
 
     alert('vous avez fait une erreur')
