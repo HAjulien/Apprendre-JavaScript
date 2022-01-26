@@ -1,0 +1,10 @@
+.active{
+    color: white;
+    background-color: red;
+    border: 2px dashed black;
+    text-indent: 25px;
+}
+
+#para{
+    cursor: pointer;
+}
