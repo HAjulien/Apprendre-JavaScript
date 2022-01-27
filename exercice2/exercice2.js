@@ -5,14 +5,16 @@ const height =document.getElementById('height');
 const width =document.getElementById('width');
 const radius =document.getElementById('radius');
 const rotate =document.getElementById('rotate');
+const titre = document.getElementById('titre');
 
-let afficheColor = "";
-let affichePadding = "";
-let afficheHeight = "";
-let afficheWidth = "";
-let afficheRadius = "";
-let afficheRotate = "";
+let afficheColor = 0;
+let affichePadding =0;
+let afficheHeight =0;
+let afficheWidth = 0;
+let afficheRadius =0;
+let afficheRotate =0;
 
+console.log(titre);
 
 color.addEventListener('input',(e) =>{
     afficheColor= e.target.value;
@@ -44,7 +46,7 @@ rotate.addEventListener('input',(e) =>{
     document.getElementById('AfficheRotate').textContent = `${afficheRotate}`;
 });
 
-
+titre.style.borderRadius = afficheRadius;
 
 
 
