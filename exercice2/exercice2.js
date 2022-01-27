@@ -3,8 +3,7 @@ let color =document.getElementById('color').value;
 let afficheColor = document.getElementById('AfficheColor');
 
 afficheColor = color;
-
-
+alert(afficheColor);
 
 
 
