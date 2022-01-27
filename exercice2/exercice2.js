@@ -1,9 +1,17 @@
 
-let color =document.getElementById('color').value;
+const color =document.getElementById('color');
 let afficheColor = document.getElementById('AfficheColor');
 
-afficheColor = color;
-alert(afficheColor);
+
+color.addEventListener('input',(e) =>{
+    afficheColor= e.target.value;
+});
+
+
+
+
+
+
 
 
 
