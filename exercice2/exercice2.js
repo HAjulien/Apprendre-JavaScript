@@ -56,3 +56,5 @@ let paragraphe = document.getElementById('para');
 paragraphe.addEventListener('click', () =>{
     paragraphe.classList.toggle('active')
 });
+
+//---------------------------------------------------------------------
