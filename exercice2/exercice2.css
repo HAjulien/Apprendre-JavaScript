@@ -16,13 +16,6 @@ input{
     margin: 0 20px;
 }
 
-h1{
-    background: pink;
-    display: block;
-}
-
-
-
 
 .active{
     color: white;
@@ -34,3 +27,4 @@ h1{
 #para{
     cursor: pointer;
 }
+

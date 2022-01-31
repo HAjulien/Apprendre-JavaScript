@@ -14,7 +14,6 @@ let afficheWidth = 0;
 let afficheRadius =0;
 let afficheRotate =0;
 
-console.log(titre);
 
 color.addEventListener('input',(e) =>{
     afficheColor= e.target.value;
@@ -29,11 +28,14 @@ padding.addEventListener('input',(e) =>{
 height.addEventListener('input',(e) =>{
     afficheHeight= e.target.value;
     document.getElementById('AfficheHeight').textContent = `${afficheHeight}`;
+    titre.style.height = `${afficheHeight}px`;
+
 });
 
 width.addEventListener('input',(e) =>{
     afficheWidth= e.target.value;
     document.getElementById('AfficheWidth').textContent = `${afficheWidth}`;
+    titre.style.width = `${afficheWidth}px`;
 });
 
 radius.addEventListener('input',(e) =>{
@@ -45,9 +47,6 @@ rotate.addEventListener('input',(e) =>{
     afficheRotate= e.target.value;
     document.getElementById('AfficheRotate').textContent = `${afficheRotate}`;
 });
-
-titre.style.borderRadius = afficheRadius;
-
 
 
 
