@@ -63,6 +63,12 @@ class Person{
         this.work = work;
         this.friends = friends;
     }
+
+    //crée une methode pour ajouter ami push pour tableau
+
+    addFriends(nick, age, sex, parent, work, friends){
+        this.friends.push(new Person(nick, age, sex, parent, work, friends));
+    }
 };
 
 
@@ -75,7 +81,17 @@ seb.nick = 'Bastien';
 seb.age = 23; //change la valeur age
 
 alert(seb.nick + ' a ' + seb.age + ' ans.');
+ 
+seb.addFriends('William', 19, 'm', 'aîné', 'Développer', []);
+seb.addFriends('Jonathan', 19, 'm', 'aîné', 'Développer', []);
+seb.addFriends('Thomas', 19, 'm', 'aîné', 'Développer', []);
 
-//crée une methode pour ajouter ami
+alert(seb.friends[1].nick + ' à ' + seb.friends[1].age + ' ans.');
+
+// seb.friends.push(new Person('William', 19, 'm', 'aîné', 'Développer', []))
+// seb.friends.push(new Person('Jonathan', 19, 'm', 'aîné', 'Développer', []))
+// seb.friends.push(new Person('Thomas', 19, 'm', 'aîné', 'Développer', []))
+
+
 
 
