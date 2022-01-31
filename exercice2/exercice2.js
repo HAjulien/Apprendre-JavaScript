@@ -18,11 +18,15 @@ let afficheRotate =0;
 color.addEventListener('input',(e) =>{
     afficheColor= e.target.value;
     document.getElementById('AfficheColor').textContent = `${afficheColor}`;
+    titre.style.backgroundColor = `rgb(${afficheColor}, ${afficheColor}, ${afficheColor})`;
+
 });
 
 padding.addEventListener('input',(e) =>{
     affichePadding= e.target.value;
     document.getElementById('AffichePadding').textContent = `${affichePadding}`;
+    titre.style.padding = `${affichePadding}px`;
+
 });
 
 height.addEventListener('input',(e) =>{
@@ -41,11 +45,16 @@ width.addEventListener('input',(e) =>{
 radius.addEventListener('input',(e) =>{
     afficheRadius= e.target.value;
     document.getElementById('AfficheRadius').textContent = `${afficheRadius}`;
+    titre.style.borderRadius = `${afficheRadius}px`;
+
 });
 
 rotate.addEventListener('input',(e) =>{
     afficheRotate= e.target.value;
     document.getElementById('AfficheRotate').textContent = `${afficheRotate}`;
+    titre.style.transform = `rotate(${afficheRotate}deg)`;
+
+ 
 });
 
 
