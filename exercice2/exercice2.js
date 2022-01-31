@@ -53,11 +53,8 @@ rotate.addEventListener('input',(e) =>{
     afficheRotate= e.target.value;
     document.getElementById('AfficheRotate').textContent = `${afficheRotate}`;
     titre.style.transform = `rotate(${afficheRotate}deg)`;
-
  
 });
-
-
 
 //----------------------------------------------------------------------------------------
 
