@@ -15,3 +15,4 @@ let AnimalsArray = ["cat", "dog", "fish"];
 for (let value of AnimalsArray){
     console.log(value);
 };
+
