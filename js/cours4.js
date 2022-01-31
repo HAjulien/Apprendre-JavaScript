@@ -86,7 +86,7 @@ seb.addFriends('William', 19, 'm', 'aîné', 'Développer', []);
 seb.addFriends('Jonathan', 19, 'm', 'aîné', 'Développer', []);
 seb.addFriends('Thomas', 19, 'm', 'aîné', 'Développer', []);
 
-alert(seb.friends[1].nick + ' à ' + seb.friends[1].age + ' ans.');
+alert(seb.friends[0].nick + ' à ' + seb.friends[0].age + ' ans.');
 
 // seb.friends.push(new Person('William', 19, 'm', 'aîné', 'Développer', []))
 // seb.friends.push(new Person('Jonathan', 19, 'm', 'aîné', 'Développer', []))
