@@ -93,5 +93,30 @@ alert(seb.friends[0].nick + ' à ' + seb.friends[0].age + ' ans.');
 // seb.friends.push(new Person('Thomas', 19, 'm', 'aîné', 'Développer', []))
 
 
+ let machaine = "c'est un test";
+let montableau = machaine.split(' ');
+
+for(let i=0; i<montableau.length; i++ ){
+     console.log(montableau[i] + '\n');
+ };
+
+// let myString = 'C\'est un test';
+// let myArray = myString.split(' ');
+
+// lenght = myArray.length;
+
+// for(var i=0; i<length; i++){
+//     console.log('Index : ' +i+ '\n' + 'valeur : ' + myArray[i]);
+//     console.log('\n' + myArray[i]);
+// };
+
+// let myArray = ["c'est", "un", "test"];
+// myArray.forEach(function(value, index){
+//     console.log('index: ' +index+ '\n' +'valeur : ' + value);
+//     console.log('\n' + value);
+// });
+
+let myArray = ["c'est", "un", "test"];
+myArray.forEach(element => console.log('\n' + element));
 
 
