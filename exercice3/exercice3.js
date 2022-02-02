@@ -1,7 +1,8 @@
-let nombre =prompt("veuillez choisir un nombre: ");
 
-let splitted = nombre.split('');
-splitted = splitted.reverse();
-let reverseNombre = splitted.join('');
+function inverse(){
+    let nombre =prompt("veuillez choisir un nombre: ");
+    let valeur = nombre.split('').reverse('').join(''); 
+    alert(valeur);
+};
 
-alert(reverseNombre);
+inverse();
