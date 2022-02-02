@@ -5,7 +5,7 @@ function inverse(){
     alert(valeur);
 };
 
-inverse();
+// inverse();
 
 //---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -15,7 +15,15 @@ function alphabetique(){
     alert(alpha);
 };
 
-alphabetique();
+// alphabetique();
 
 //----------------------------------------------------------------------------------------------------------------------------------------
 
+
+function maj(){
+    let min =prompt("veuillez choisir un mot: ");
+    let maj = min.charAt(0).toUpperCase();
+    alert(maj);
+};
+
+maj();
