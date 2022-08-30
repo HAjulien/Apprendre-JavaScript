@@ -4,18 +4,138 @@
     box-sizing: border-box;
 }
 
+:root{
+    --background: #165465;
+    --correct: #166812;
+    --incorrect: #cb3439;
+    --characterPosition: #17a2b8;
+
+}
+
 body{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color:#51d63a;
-
+    background-color: var(--background) ;
 }
 
 .wrapper{
     width: 770px;
     padding: 35px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.input-field{
+    position: absolute;
+    opacity: 0;
+    z-index: -999;
+}
+.content-box{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.typing-text::-webkit-scrollbar{
+    width: 0;
+}
+
+.typing-text{
+    max-height: 255px;
+    overflow-y: auto;
+}
+
+
+.typing-text p{
+    font-size: 21px;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+
+.typing-text p span.correct{
+    color: var(--correct);
+}
+
+.typing-text p span{
+    position: relative;
+}
+.typing-text p span.incorrect{
+    color: var(--incorrect);
+    background-color: #ffc0cb;
+    outline: 1px solid #fff;
+    border-radius: 4px;
+}
+
+.typing-text p span.active{
+    color: var(--characterPosition);
+}
+
+.typing-text p span.active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background-color: var(--characterPosition);
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+    50%{ opacity: 1; }
+}
+
+.content-box .content{
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+    justify-content: space-between;
+}
+
+.content-box .result-details{
+    display: flex;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+}
+
+.content-box .result-details li{
+    display: flex;
+    list-style: none;
+    font-size: 20px;
 
 }
 
+.result-details li:not(:first-child){
+    padding-left: 22px;
+    border-left: 1px solid #ccc;
+}
+.result-details li span{
+    display: block;
+    margin-left: 10px;
+}
+
+.result-details li:not(:first-child) span, .result-details li b {
+    font-weight: 500;
+}
+
+.content button{
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--background);
+    transition: transform 0.3s ease;
+}
+
+.content button:active{
+    transform: scale(0.97);
+}
