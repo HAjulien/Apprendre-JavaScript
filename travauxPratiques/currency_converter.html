@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curency Converter with API</title>
+    <link rel="stylesheet" href="css/curency.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Currency Converter</h1>
+        <form action="#">
+            <div class="amount">
+                <p>enter Amount</p>
+                <input type="text" name="amount" id="amount" value="1">
+            </div>
+            <div class="drop-list">
+                <div class="from">
+                    <p>from</p>
+                    <div class="select-box">
+                        <img src="https://countryflagsapi.com/png/fr" alt="flag">
+                        <select></select>
+                    </div>
+                </div>
+                <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                <div class="to">
+                    <p>from</p>
+                    <div class="select-box">
+                        <img src="https://countryflagsapi.com/png/us" alt="flag">
+                        <select></select>
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-rate">getting exchange rate...</div>
+            <button>Get Exchange Rate</button>
+        </form>
+    </div>
+
+
+    
+    <script src="js/country_list.js"></script>
+    <script src="js/curency.js"></script>
+</body>
+</html>
