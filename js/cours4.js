@@ -48,6 +48,7 @@ class Calcul{
         this.produit = var1 * var2;
     }
 };
+
 alert (new Calcul(4,5).produit);
 //let calcul1 = new Calcul (4,5).produit;
 //alert(calcul);
