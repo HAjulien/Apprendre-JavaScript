@@ -34,7 +34,7 @@ const localStorageVariableExpiry = (key, value, delayExpiration) =>{
     const now = new Date ();
     const item = {
         value: value,
-        expiry: now.getTime() + delayExpiration,
+        expiryTime: now.getTime() + delayExpiration,
     };
     localStorage.setItem(key, JSON.stringify(item))
 };
@@ -47,7 +47,7 @@ const getLocalStorageVariable = (key) =>{
     const item = JSON.parse(itemStr);
     const now = new Date();
 
-    if (now.getTime() > item.expiry) {
+    if (now.getTime() > item.expiryTime) {
         localStorage.removeItem(key);
         return null
     }
