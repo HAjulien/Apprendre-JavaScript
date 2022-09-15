@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#canvas1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#title1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 120px;
+    line-height: 100px;
+    white-space: nowrap;
+    border-top: 5px solid #000;
+}
+
+#title1::before{
+    content: 'is awesome';
+    position: absolute;
+    bottom: -70px;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+}
