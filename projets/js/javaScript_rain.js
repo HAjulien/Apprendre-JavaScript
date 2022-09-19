@@ -29,6 +29,7 @@ class Particle {
         this.weight = Math.random() * 1 + 1;
         this.directionX = -2;
         this.color = color;
+        this.saturation = Math.floor(Math.random() * 50) + 50
     }
     update() {
         if(this.y > canvas.height){
@@ -52,7 +53,7 @@ class Particle {
         }
     }
     draw(){
-        ctx.fillStyle = `hsl(${this.color}, 50%, 50%)`;
+        ctx.fillStyle = `hsl(${this.color}, ${this.saturation}%, 50%)`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -66,9 +67,10 @@ function init(){
     for (let i = 0; i < numberOfParticles; i++){
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        if (color > 255)  color = -1;
-        color++;
+        //const y = (Math.random() * canvas.height) * 0.4;
+        if (color > 255)  color = 0;
         particlesArray.push(new Particle(x, y, color))
+        color++;
 
     }
 }
@@ -95,7 +97,7 @@ function animate(){
     if(isMovingLeft) title.x += 5
     if(title.x - title.baseX > -3 ) isMovingLeft = false;
 
-
+    ctx.fillStyle= `hsl(185, 90%, 60%)`;
     ctx.fillRect(title.x, title.y, title.width, title.height);
     requestAnimationFrame(animate);
 }

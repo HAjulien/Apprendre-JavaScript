@@ -17,11 +17,6 @@ window.addEventListener('mousemove', (e)=> {
     //console.log(mouse.x, mouse.y); 
 });
 
-ctx.fillStyle = 'white';
-ctx.font = '30px Verdena';
-ctx.fillText('A', 0, 30);
-const textCoordinate = ctx.getImageData(0, 0, 100, 100);
-
 class Particle {
     constructor(x, y){
         this.x = x;
@@ -73,7 +68,7 @@ class Particle {
 const init = () =>{
     particlesArray = [];
 
-    for (let i = 0; i < 700; i++){
+    for (let i = 0; i < 500; i++){
         let x = Math.random() * canvas.width;
         let y = Math.random() * canvas.height;
         particlesArray.push(new Particle(x, y));
@@ -92,3 +87,10 @@ const animate = () =>{
 }
 
 animate();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+
+})
