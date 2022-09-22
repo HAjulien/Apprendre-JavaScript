@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: #efefef;
+}
+
+.wrapper{
+    position: relative;
+    height: 500px;
+    width: 750px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    border: 7px solid #fff;
+}
+
+.images{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.img1{
+    height: 100%;
+    width: 100%;
+    background: url(../images/salade-de-fruit-1.jpeg);
+    background-size: cover;
+}
+
+.img2{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: url(../images/Carpaccio.jpg);
+    background-size: cover;
+}
+
+.slider{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.slider input{
+    width: 100%;
+    outline: none;
+    background: none;
+    -webkit-appearance: none;
+    
+}
+
+.slider input::-webkit-slider-thumb{
+    height: 490px;
+    width: 26px;
+    -webkit-appearance: none;
+    cursor: col-resize;
+    z-index: 99;
+}
+
+.drag-line{
+    position: absolute;
+    height: 490px;
+    width: 6px;
+    background-color: red;
+    left: 50%;
+}
