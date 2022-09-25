@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: hsl(0, 0%, 0%);
+}
+
+#canvas1{
+    border: 2px solid hsl(0, 0%, 100%);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    translate: -50% ;
+    width: 474px;
+    height: 710px;
+    /* filter: blur(2px) contrast(2); */
+}
