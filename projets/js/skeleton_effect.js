@@ -24,11 +24,10 @@ const createCards = (data) => {
         //console.log(index);
         const newCard = `
         <div class="card">
-            <img src="${data[index].download_url}" class="top-img"/>
+            <img src="${data[index].download_url}" alt="image aléatoire" class="top-img"/>
             <div class="content">
                 <h3 class="card-title">Lorem ipsum dolor sit amet.</h3>
-                <p class="card-text"> Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum.</p>
-                <p class="card-text"> Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
+                <p class="card-text"> Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ip.Lorem ipsum dolor sit amet</p>
             </div>
         </div>
         `
