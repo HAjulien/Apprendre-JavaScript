@@ -1,0 +1,82 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        to right,
+        #434343,
+        #212121
+    );
+}
+
+.cards-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 0 20px;
+    max-width: 1300px;
+    margin: 100px auto 0;
+}
+
+.card{
+    background-color: #f1f1f1;
+}
+
+.top-img{
+    display: block;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    background-color: #4c4c4c;
+}
+
+.top-img.skeleton-anime{
+    animation: skeleton 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton {
+    to {
+        opacity:0.6;
+    }
+}
+
+.content{
+    padding: 15px;
+}
+
+.skeleton-title, .skeleton-text{
+    width: 60%;
+    background-color: #434343;
+    animation: skeleton 0.8s ease-in-out infinite alternate;
+}
+
+.skeleton-title{
+    height: 20px;
+}
+
+.skeleton-text{
+    margin-top: 10px;
+    height: 10px;
+}
+
+.skeleton-text:first-of-type{
+    width: 90%;
+}
+
+.card-title{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.cards-text{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
