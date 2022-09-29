@@ -60,7 +60,7 @@ arreter.addEventListener('click', function(){
 reset.addEventListener('click', function(){
     isRunning = false
     clearInterval(myInterval);
-    seconde = minute = myInterval = 0 ;
+    centiemeSeconde = seconde = minute = myInterval = 0 ;
     span.innerText = `00:00:00`;
 
 })
