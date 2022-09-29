@@ -29,7 +29,8 @@ let calcul1 =(function(){
 
 //alert(calcul1);
 
-//on essaie de faire un chronometre
+// un chronometre----------------------------------------------------------------------------------------------------------------------
+
 const span = document.querySelector('.chronometre'),
 arreter = document.querySelector('.arreter'),
 start = document.querySelector('.start'),
@@ -62,6 +63,75 @@ reset.addEventListener('click', function(){
     clearInterval(myInterval);
     centiemeSeconde = seconde = minute = myInterval = 0 ;
     span.innerText = `00:00:00`;
-
 })
 
+//TodoList-----------------------------------------------------------------------------------------------------------------------------
+
+const list = document.querySelector('.list'),
+submit = document.querySelector('.submit'),
+save = document.querySelector('.save'),
+suppressAllToDo = document.querySelector('.suppressAllToDo'),
+toDo = document.querySelector('.toDo');
+
+const dataCreate = (value) => {
+    const newToDo = document.createElement("li");
+    newToDo.innerText = value;
+    newToDo.style.margin = '10px 0';
+    const supress = document.createElement("button");
+    supress.innerText = 'supprimer';
+    supress.style.margin = '0 5px';
+    newToDo.classList.add('corve');
+    newToDo.appendChild(supress);
+    list.appendChild(newToDo);
+}
+
+const displayLocalData = () => {
+    if (!localStorage.getItem('corves')) return console.log('pas de data');
+    const localDatas = JSON.parse(localStorage.getItem('corves'));
+    localDatas.forEach(data => {
+        dataCreate(data)
+    });
+}
+
+displayLocalData()
+
+const addToDo = () => {
+    if((toDo.value).replace(/ /g, "") === "") return toDo.value = '';
+    dataCreate(toDo.value)
+    toDo.value = '';
+};
+
+submit.addEventListener('click', ()=>{
+    addToDo()
+});
+
+toDo.addEventListener('keydown', (e)=>{
+    //console.log(e.key);
+    if (e.key === 'Enter') return addToDo();
+})
+
+save.addEventListener('click', () =>{
+    const corves = [...document.querySelectorAll('.corve')];
+    let listCorves = corves.map(corve => corve.textContent.slice(0, -9))
+    console.log(JSON.stringify(listCorves));
+    localStorage.setItem('corves', JSON.stringify(listCorves))
+});
+
+suppressAllToDo.addEventListener('click', () =>{
+    let confirm = window.confirm('Are you sure you want to delete?')
+    if (!confirm) return
+    localStorage.removeItem('corves');
+    list.innerHTML = '';
+});
+
+list.addEventListener('click', (e) =>{
+    let target = e.target; // where was the click?
+    //console.log(target);
+    if (target.tagName === 'LI') return target.classList.toggle("barrer");
+    if (target.tagName != 'BUTTON') return
+
+    //target.remove();
+    let confirm = window.confirm('Are you sure you want to delete?')
+    if (!confirm) return
+    target.parentElement.remove()
+});
