@@ -102,3 +102,4 @@ const printUser = ({nom , age, hobbies: {sport, music} }) => {
 };
 
 printUser(personFour)
+
