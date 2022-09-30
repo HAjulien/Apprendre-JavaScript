@@ -34,7 +34,8 @@ let calcul1 =(function(){
 const span = document.querySelector('.chronometre'),
 arreter = document.querySelector('.arreter'),
 start = document.querySelector('.start'),
-reset = document.querySelector('.reset');
+reset = document.querySelector('.reset'),
+INTERVAL_TIME_MS = 10;
 
 let centiemeSeconde = seconde = minute = myInterval = 0,
 isRunning = false
@@ -50,7 +51,7 @@ function chrono () {
 
 start.addEventListener('click',()=>{
     if(isRunning) return
-    myInterval = setInterval(chrono, 10)
+    myInterval = setInterval(chrono, INTERVAL_TIME_MS)
 });
 
 arreter.addEventListener('click', function(){
@@ -71,33 +72,36 @@ const list = document.querySelector('.list'),
 submit = document.querySelector('.submit'),
 save = document.querySelector('.save'),
 suppressAllToDo = document.querySelector('.suppressAllToDo'),
-toDo = document.querySelector('.toDo');
+toDo = document.querySelector('.toDo'),
+SLICE_BTN_CONTENT_LENGHT = -9;
 
-const dataCreate = (value) => {
+const toDoCreate = (value) => {
     const newToDo = document.createElement("li");
     newToDo.innerText = value;
     newToDo.style.margin = '10px 0';
+    newToDo.classList.add('todo');
+
     const supress = document.createElement("button");
     supress.innerText = 'supprimer';
     supress.style.margin = '0 5px';
-    newToDo.classList.add('corve');
     newToDo.appendChild(supress);
+
     list.appendChild(newToDo);
 }
 
-const displayLocalData = () => {
-    if (!localStorage.getItem('corves')) return console.log('pas de data');
-    const localDatas = JSON.parse(localStorage.getItem('corves'));
-    localDatas.forEach(data => {
-        dataCreate(data)
+const displayLocalToDo = () => {
+    if (!localStorage.getItem('todos')) return console.log('pas de todo List');
+    const localTodos = JSON.parse(localStorage.getItem('todos'));
+    localTodos.forEach(todo => {
+        toDoCreate(todo)
     });
 }
 
-displayLocalData()
+displayLocalToDo()
 
 const addToDo = () => {
     if((toDo.value).replace(/ /g, "") === "") return toDo.value = '';
-    dataCreate(toDo.value)
+    toDoCreate(toDo.value)
     toDo.value = '';
 };
 
@@ -111,16 +115,16 @@ toDo.addEventListener('keydown', (e)=>{
 })
 
 save.addEventListener('click', () =>{
-    const corves = [...document.querySelectorAll('.corve')];
-    let listCorves = corves.map(corve => corve.textContent.slice(0, -9))
-    console.log(JSON.stringify(listCorves));
-    localStorage.setItem('corves', JSON.stringify(listCorves))
+    const todos = [...document.querySelectorAll('.todo')];
+    let listTodos = todos.map(todo => todo.textContent.slice(0, SLICE_BTN_CONTENT_LENGHT))
+    //console.log(JSON.stringify(listTodos));
+    localStorage.setItem('todos', JSON.stringify(listTodos))
 });
 
 suppressAllToDo.addEventListener('click', () =>{
     let confirm = window.confirm('Are you sure you want to delete?')
     if (!confirm) return
-    localStorage.removeItem('corves');
+    localStorage.removeItem('todos');
     list.innerHTML = '';
 });
 
