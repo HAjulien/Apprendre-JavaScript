@@ -84,8 +84,8 @@ const toDoCreate = (value) => {
     const supress = document.createElement("button");
     supress.innerText = 'supprimer';
     supress.style.margin = '0 5px';
-    newToDo.appendChild(supress);
 
+    newToDo.appendChild(supress);
     list.appendChild(newToDo);
 }
 
@@ -134,7 +134,6 @@ list.addEventListener('click', (e) =>{
     if (target.tagName === 'LI') return target.classList.toggle("barrer");
     if (target.tagName != 'BUTTON') return
 
-    //target.remove();
     let confirm = window.confirm('Are you sure you want to delete?')
     if (!confirm) return
     target.parentElement.remove()
