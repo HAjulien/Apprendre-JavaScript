@@ -72,10 +72,10 @@ const list = document.querySelector('.list'),
 submit = document.querySelector('.submit'),
 save = document.querySelector('.save'),
 suppressAllToDo = document.querySelector('.suppressAllToDo'),
-toDo = document.querySelector('.toDo'),
-SLICE_BTN_CONTENT_LENGHT = -9;
+toDoInput = document.querySelector('.toDo'),
+BTN_SUPRESS_INNERTEXT_LENGHT = -9;
 
-const toDoCreate = (value) => {
+const createToDo = (value) => {
     const newToDo = document.createElement("li");
     newToDo.innerText = value;
     newToDo.style.margin = '10px 0';
@@ -93,30 +93,30 @@ const displayLocalToDo = () => {
     if (!localStorage.getItem('todos')) return console.log('pas de todo List');
     const localTodos = JSON.parse(localStorage.getItem('todos'));
     localTodos.forEach(todo => {
-        toDoCreate(todo)
+        createToDo(todo)
     });
 }
 
 displayLocalToDo()
 
 const addToDo = () => {
-    if((toDo.value).replace(/ /g, "") === "") return toDo.value = '';
-    toDoCreate(toDo.value)
-    toDo.value = '';
+    if( (toDoInput.value).replace(/ /g, "") === "" ) return toDoInput.value = '';
+    createToDo(toDoInput.value)
+    toDoInput.value = '';
 };
 
 submit.addEventListener('click', ()=>{
     addToDo()
 });
 
-toDo.addEventListener('keydown', (e)=>{
+toDoInput.addEventListener('keydown', (e)=>{
     //console.log(e.key);
     if (e.key === 'Enter') return addToDo();
 })
 
 save.addEventListener('click', () =>{
     const todos = [...document.querySelectorAll('.todo')];
-    let listTodos = todos.map(todo => todo.textContent.slice(0, SLICE_BTN_CONTENT_LENGHT))
+    let listTodos = todos.map(todo => todo.textContent.slice(0, BTN_SUPRESS_INNERTEXT_LENGHT))
     //console.log(JSON.stringify(listTodos));
     localStorage.setItem('todos', JSON.stringify(listTodos))
 });
@@ -131,9 +131,9 @@ suppressAllToDo.addEventListener('click', () =>{
 list.addEventListener('click', (e) =>{
     let target = e.target; // where was the click?
     //console.log(target);
+    //if (target.className === 'todo') return console.log("je test nom de class");
     if (target.tagName === 'LI') return target.classList.toggle("barrer");
     if (target.tagName != 'BUTTON') return
-
     let confirm = window.confirm('Are you sure you want to delete?')
     if (!confirm) return
     target.parentElement.remove()
