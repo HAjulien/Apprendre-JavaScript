@@ -144,3 +144,71 @@ function findAndReplace(texte) {
 const text1Clean = findAndReplace(texte1)
 console.log(text1Clean);
 console.log(texte1);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+const moyenne = (notes) => {
+    sumNotes = notes.reduce((acc, ele) => acc + ele);
+    return (sumNotes /notes.length).toFixed(2);
+}
+
+class Student {
+    ecole = "Jules Ferry"
+    _notes = [];
+    constructor(firstName, lastName){
+        this.firstName = firstName,
+        this.lastName = lastName
+    }
+
+    //setter
+    set notes (v){
+        if (Array.isArray(v)) this._notes = v
+    }
+
+    //getter
+    get name(){
+        return `${this.firstName} ${this.lastName}`
+    }
+
+    //methodes
+    canPass() {
+        return moyenne(this._notes) >= Student.moyenne
+    }
+
+    //static
+    static moyenne = 10
+}
+
+class SuperStudent extends Student {
+    constructor(firstName, lastName, notes){
+        super(firstName, lastName)
+        this._notes = notes
+    }
+
+    get name () {
+        return `Super ${super.name}`
+    }
+
+    canPass(){
+        return true
+    }
+}
+
+
+const john = new SuperStudent('John', 'Doe', [1, 4, 9]);
+const jane = new Student('Jane', 'Doe');
+jane.notes = [12, 14, 12];
+
+console.log(jane.name);
+console.log(john.name);
+
+function resultat(student){
+    if( !(student instanceof Student)) return console.log(`Vous n'etes pas un éleve de cette école`);
+    if(!student.canPass()) return console.log(`Désolé ${student.name}. Votre moyenne est trop basse pour passer au CM2.` );
+    console.log(`Vous pouvez passer en CM2. Felicitations ${student.name}!!!`);
+}
+
+resultat('test')
+resultat(john);
+resultat(jane);
+
