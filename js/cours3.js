@@ -152,6 +152,17 @@ const moyenne = (notes) => {
     return (sumNotes /notes.length).toFixed(2);
 }
 
+const checkNotesArray = (values) => {
+    const isArray = Array.isArray(values);
+    if (!isArray) { return console.log("tableau exigé"), false};
+    
+    const allNumber0to20 = (note) => typeof note === 'number' && note >= 0 && note <= 20;
+    
+    if (!values.every(allNumber0to20)) {return console.log("une note ne respecte pas les conditions (chiffre 0 et 20)"), false};
+
+    return true
+};
+
 class Student {
     ecole = "Jules Ferry"
     _notes = [];
@@ -173,6 +184,14 @@ class Student {
     //methodes
     canPass() {
         return moyenne(this._notes) >= Student.moyenne
+    }
+
+    addNotes(values) {
+
+        if( !checkNotesArray(values) ) return console.log("impossible d'ajouter une/des notes");
+
+        console.log( `notes ${values.join(", ")} ont été ajoutées` );
+        return this._notes = [...this._notes, ...values]
     }
 
     //static
@@ -198,6 +217,7 @@ class SuperStudent extends Student {
 const john = new SuperStudent('John', 'Doe', [1, 4, 9]);
 const jane = new Student('Jane', 'Doe');
 jane.notes = [12, 14, 12];
+jane.addNotes([12,12]);
 
 console.log(jane.name);
 console.log(john.name);
@@ -208,7 +228,7 @@ function resultat(student){
     console.log(`Vous pouvez passer en CM2. Felicitations ${student.name}!!!`);
 }
 
-resultat('test')
+resultat('test');
 resultat(john);
 resultat(jane);
 
