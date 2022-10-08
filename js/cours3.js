@@ -156,7 +156,7 @@ const checkNotesArray = (values) => {
     const isArray = Array.isArray(values);
     if (!isArray) { return console.log("tableau exigé"), false};
     
-    const allNumber0to20 = (note) => typeof note === 'number' && note >= 0 && note <= 20;
+    const allNumber0to20 = (value) => typeof value === 'number' && value >= 0 && value <= 20;
     
     if (!values.every(allNumber0to20)) {return console.log("une note ne respecte pas les conditions (chiffre 0 et 20)"), false};
 
