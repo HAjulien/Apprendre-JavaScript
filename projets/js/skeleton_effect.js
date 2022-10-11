@@ -10,8 +10,8 @@ const loadContent = async () => {
             createCards(data)
         }, 4000)
     } catch (error) {
-        console.log(error);
-        alert('donner non trouve')
+        console.error(error);
+        alert('données non trouve')
     }
 };
 

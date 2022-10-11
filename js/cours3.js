@@ -120,13 +120,13 @@ const arrayTest = [1, 4, 8, [23, 41, [12,83, 76]]]
 const arrayTestFlat = arrayTest.flat(2)
 console.log(arrayTestFlat);
 
-const texte1 = 'le chien et le chat sont dans la maisonnette';
+const texte1 = 'le chien et le chat sont dans la maisonnette, le chien, le chat sont dans la maison';
 //const texte2 = texte1.replace('chien', '').replace('chat', '');
 //console.log(texte2);
 
 const tableauMot = ['chien', 'chat', 'maisonnette']
 
-function findAndReplace(texte) {
+function findAllAndReplace(texte) {
 
         tableauMot.forEach( word => {
 
@@ -135,13 +135,13 @@ function findAndReplace(texte) {
                 motCensurer += "*"
             }
             //console.log(motCensurer);
-            texte = texte.replace( word, motCensurer);
+            texte = texte.replaceAll( word, motCensurer);
         });
         return texte
 
 }
 
-const text1Clean = findAndReplace(texte1)
+const text1Clean = findAllAndReplace(texte1)
 console.log(text1Clean);
 console.log(texte1);
 
@@ -158,24 +158,28 @@ const checkNotesArray = (values) => {
     
     const allNumber0to20 = (value) => typeof value === 'number' && value >= 0 && value <= 20;
     
-    if (!values.every(allNumber0to20)) {return console.log("une note ne respecte pas les conditions (chiffre 0 et 20)"), false};
+    if (!values.every(allNumber0to20)) {return console.log("une note ne respecte pas les conditions (chiffre 0 à 20)"), false};
 
     return true
 };
 
 class Student {
     ecole = "Jules Ferry"
-    _notes = [];
+    _notes = [];  //variable interne
     constructor(firstName, lastName){
         this.firstName = firstName,
         this.lastName = lastName
     }
 
-    //setter
+    //setter on peut ajouter des verification/regles
+
     set notes (v){
         if (Array.isArray(v)) this._notes = v
     }
 
+    set sport (v) {
+        if (typeof v === 'string' ) this._sport = v
+    }
     //getter
     get name(){
         return `${this.firstName} ${this.lastName}`
@@ -190,8 +194,8 @@ class Student {
 
         if( !checkNotesArray(values) ) return console.log("impossible d'ajouter une/des notes");
 
-        console.log( `notes ${values.join(", ")} ont été ajoutées` );
-        return this._notes = [...this._notes, ...values]
+        this._notes = [...this._notes, ...values]
+        return console.log( `notes ${values.join(", ")} ont été ajoutées` );
     }
 
     //static
@@ -232,3 +236,6 @@ resultat('test');
 resultat(john);
 resultat(jane);
 
+jane.sport = "golf";
+
+console.log(jane);

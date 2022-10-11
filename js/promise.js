@@ -129,4 +129,46 @@ async function commande() {
 }
 
 
-commande();
+//commande();
+
+//------------------Await boucle----------------------------------------------------------------------------
+
+function sleep(){
+    return new Promise ((resolve, reject) => {
+        setTimeout (()=> resolve(),1000)
+    })
+}
+
+(async () => {
+    console.log('start');
+    
+    const fruits = ['banana', 'Strawberry', 'Apple'];
+
+    /* await a la suite, l'un apres l'autre
+
+    for(const fruit of fruits) {
+        await sleep();
+        console.log(fruit);
+    }
+
+    await asynchrone en parallele non bloquant
+
+    forEach ne fonxtionne pas car il ne renvoie rien void
+    fruits.forEach( async()=> {
+        await sleep()
+        console.log(fruit);
+    })
+    */
+
+    const sleepyFruits = fruits.map( async fruit=> {
+        await sleep()
+        console.log(fruit);
+    });
+
+    //console.log(sleepyFruits);
+
+    await Promise.all(sleepyFruits)
+    
+
+    console.log('End');
+})()
