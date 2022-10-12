@@ -30,7 +30,7 @@ function maj(){
 
 //----------------------------------------------------------------------------------------------------------------------------------------
 
-const localStorageVariableExpiry = (key, value, delayExpiration) =>{
+const createLocalStorageVariableExpiry = (key, value, delayExpiration) =>{
     const now = new Date ();
     const item = {
         value: value,
@@ -61,6 +61,6 @@ console.log(localStorage.getItem("nom"));
 
 
 btn.addEventListener("click", () => {
-    localStorageVariableExpiry("nom", "john", 10000);
+    createLocalStorageVariableExpiry("nom", "john", 10000);
     console.log("test");
 });
