@@ -1,6 +1,6 @@
 // alert('Hello World');
 /* document.open();
- rajoute texte comme print*/
+//rajoute texte comme print*/
 document.write('<p class=para> Bonjour le monde ! </p>');
 // document.close();
 

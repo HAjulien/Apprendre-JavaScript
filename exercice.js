@@ -37,7 +37,7 @@ let userage = parseInt(prompt("Entrer votre âge"));
             }
 
 
-let userage = "";
+userage = "";
 
 
 

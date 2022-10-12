@@ -4,18 +4,18 @@
 // let query = document.querySelector('#menu .item span');
 // alert(query.innerHTML); //Affiche element 1
 
-let queryAll = document.querySelectorAll('#menu .item span');
+//let queryAll = document.querySelectorAll('#menu .item span');
 //alert(queryAll.length); //affiche 2
 
 //alert(queryAll[0].innerHTML + ' - ' + queryAll[1].innerHTML); //Afiche élément 1 et élément 2
 
-for(let index=0, items=queryAll.length; index < items; index++){
+//for(let index=0, items=queryAll.length; index < items; index++){
     //alert( queryAll[index].innerHTML);         //.innerHTML pour récupérer le contenu des éléments
-}
+//}
 
-let t = "couleur dynamique";
+let variable = "couleur dynamique";
 css = "background-color: green; color: white; padding: 10px 15px;"
-console.log(`%c ${t}` , css);
+console.log(`%c message que tu veux ecrire ${variable}` , css); 
 
 const persons = [
 {
@@ -239,3 +239,33 @@ resultat(jane);
 jane.sport = "golf";
 
 console.log(jane);
+
+class Person {
+    constructor(firstName, lastName, sport){
+        this.firstName = firstName,
+        this.lastName = lastName,
+        this.sport = sport
+    }
+
+    set favoriteDessert(dessert){
+        if(typeof dessert !== "string") return
+        this.dessert = dessert
+    }
+}
+
+const person1 = new Person('Jean Claude', 'Vandhame', ['karate', 'natation', 'course à pied'])
+const person2 = new Person('Henry', 'Qa', ['karate', 'équitation', '400 mètres'])
+const person3 = new Person('Arthur', 'Loufoque', ['ski', 'football', 'rugby'])
+
+person1.favoriteDessert = 'barre de proteine'
+
+console.log(person2.favoriteDessert);
+
+const allPersons = [person1, person2, person3]
+
+const personSport = allPersons.map( person => {
+    return {firstName : person.firstName, sports : person.sport}
+    
+})
+
+console.table(personSport);
