@@ -30,11 +30,11 @@ function maj(){
 
 //----------------------------------------------------------------------------------------------------------------------------------------
 
-const createLocalStorageVariableExpiry = (key, value, delayExpiration) =>{
-    const now = new Date ();
+const createLocalStorageVariableExpiry = (key, value, delayExpirationMS) =>{
+    const now = new Date().getTime();
     const item = {
         value: value,
-        expiryTime: now.getTime() + delayExpiration,
+        expiryTime: now + delayExpirationMS,
     };
     localStorage.setItem(key, JSON.stringify(item))
 };
@@ -45,9 +45,9 @@ const getLocalStorageVariable = (key) =>{
     if(!itemStr) return null
 
     const item = JSON.parse(itemStr);
-    const now = new Date();
+    const now = new Date().getTime();
 
-    if (now.getTime() > item.expiryTime) {
+    if (now > item.expiryTime) {
         localStorage.removeItem(key);
         return null
     }
@@ -61,6 +61,27 @@ console.log(localStorage.getItem("nom"));
 
 
 btn.addEventListener("click", () => {
-    createLocalStorageVariableExpiry("nom", "john", 10000);
-    console.log("test");
+    createLocalStorageVariableExpiry("nom", "john", 100000);
 });
+
+//comparaison tableau--------------------------------------------------------------------------------------
+
+const arrayTest1 = ["e", "a", "b", "c", "d", "a", 2, 12]
+const arrayTest2 = ["b", "a","e", "c", "d","a", 12, 2]
+
+function arrayIsEgal(){
+    let test1 = JSON.stringify(arrayTest1.sort());
+    let test2 = JSON.stringify(arrayTest2.sort());
+    console.log( test1);
+    console.log( test2);
+
+    if (test1 === test2) {
+        console.log("ils sont egaux");
+        return true;
+    } else {
+        console.log("il ne sont pas egaux");
+        return false;
+    }
+}
+
+console.log(arrayIsEgal());
