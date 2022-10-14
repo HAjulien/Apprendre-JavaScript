@@ -66,16 +66,16 @@ btn.addEventListener("click", () => {
 
 //comparaison tableau--------------------------------------------------------------------------------------
 
-const arrayTest1 = ["e", "a", "b", "c", "d", "a", 2, 12]
-const arrayTest2 = ["b", "a","e", "c", "d","a", 12, 2]
+const arrayTest1 = [ "a", "b", "c", "d", "a", 2, 12]
+const arrayTest2 = ["b", "a", "c", "d","a", 12, 2]
 
-function arrayIsEgal(){
-    let test1 = JSON.stringify(arrayTest1.sort());
-    let test2 = JSON.stringify(arrayTest2.sort());
-    console.log( test1);
-    console.log( test2);
+function isArrayEgal(){
+    let array1ToString = JSON.stringify(arrayTest1.sort());
+    let array2ToString = JSON.stringify(arrayTest2.sort());
+    console.log( array1ToString);
+    console.log( array2ToString);
 
-    if (test1 === test2) {
+    if (array1ToString === array2ToString) {
         console.log("ils sont egaux");
         return true;
     } else {
@@ -84,4 +84,4 @@ function arrayIsEgal(){
     }
 }
 
-console.log(arrayIsEgal());
+console.log(isArrayEgal());
