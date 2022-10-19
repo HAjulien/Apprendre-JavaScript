@@ -1,4 +1,4 @@
-//ouvrir avec QOUKKA
+//ouvrir avec QOUKKA ctr k + q
 
 function closure(){
     let a = 10

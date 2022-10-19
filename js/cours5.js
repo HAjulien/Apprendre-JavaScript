@@ -100,6 +100,38 @@ const printUser = ({nom , age, hobbies: {sport, music} }) => {
     console.log(`Name is ${nom} and age is ${age}. Favorites Sport are ${sport}`);
     console.log(`i listen ${music}`);
 };
-
 printUser(personFour)
 
+
+const createdArticle = ({title, content}) => {
+    const article = document.createElement('article')
+    article.append(createdElementWithText('h2', title ))
+    article.append(createdElementWithText('p', content ))
+    return article
+}
+
+const createdElementWithText = (tagName, content) => {
+    const element = document.createElement(tagName);
+    element.innerText = content;
+    return element
+};
+
+let baseURL = 'https//example.com'
+
+const getData = async () => {
+    try {
+        const response = await fetch(`${baseURL}/posts`)
+        if(!response.ok) throw new Error('une erreur est survenue')
+        const posts = await response.json()
+
+        posts.forEach(post => {
+            wrapper.append(createdArticle(post))
+        })
+        
+    } catch (error) {
+        console.error(error)
+        alert(error)
+    }
+};
+
+getData();
