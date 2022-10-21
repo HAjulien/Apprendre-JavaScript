@@ -17,7 +17,10 @@
 <body>
 
     <section class="container pt-5" id="todolist">
-        <!--  <form class="d-flex pb-4">
+    </section>
+
+    <template id="todolist-layout">
+        <form class="d-flex pb-4">
             <input required="" class="form-control" type="text" placeholder="Acheter des patates..." name="title" data-com.bitwarden.browser.user-edited="yes">
             <button class="btn btn-primary">Ajouter</button>
         </form>
@@ -29,20 +32,19 @@
             </div>
 
             <ul class="list-group">
-
-                <li class="todo list-group-item d-flex align-items-center">
-                    <input class="form-check-input" type="checkbox" id="todo-2">
-                    <label class="ms-2 form-check-label" for="todo-2">
-                        Tâche à faire 1
-                    </label>
-                    <label class="ms-auto btn btn-danger btn-sm">
-                    <i class="bi-trash">
-                    </i>
-                    </label>
-                </li> 
             </ul>
-        </main> -->
-    </section>
+        </main>
+    </template>
+
+    <template id="todolist-item">
+        <li class="todo list-group-item d-flex align-items-center">
+            <input class="form-check-input" type="checkbox">
+            <label class="ms-2 form-check-label"></label>
+            <button class="ms-auto btn btn-danger btn-sm">
+                <i class="bi-trash"></i>
+            </button>
+        </li> 
+    </template>
 
 </body>
 </html>
