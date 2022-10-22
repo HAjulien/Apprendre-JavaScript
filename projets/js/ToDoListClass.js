@@ -40,6 +40,17 @@ export class TodoList {
         .forEach(button => {
             button.addEventListener('click', e => this.#toggleFilter(e))
         })
+
+        this.#listElement.addEventListener('custom:delete',({detail : todo}) => {
+            console.log(todo);
+            this.#todos = this.#todos.filter( tache => tache !== todo)
+            console.log(this.#todos);
+        })
+        
+        this.#listElement.addEventListener('custom:toggle',({detail : todo}) => {
+            todo.completed = !todo.completed
+            console.log(this.#todos);
+        })
     }
 
     /**
@@ -61,6 +72,7 @@ export class TodoList {
             completed: false
         }
         const item = new TodoListItem(todo)
+
         this.#listElement.prepend(item.element)
         form.reset()
     }
@@ -91,28 +103,35 @@ export class TodoList {
 class TodoListItem{
 
     #element
+    #todo
 
     /** @type {Todo} */
-    constructor({id, title, completed}){
-        const idTodo = `todo-${id}`
+    constructor(todo){
+
+        this.#todo = todo
+        const idTodo = `todo-${todo.id}`
         const li = cloneTemplate('todolist-item').firstElementChild
 
         this.#element = li
         const checkbox = li.querySelector('input')
         checkbox.setAttribute('id', idTodo)
-        if (completed){
+        if (todo.completed){
             checkbox.setAttribute('checked', '')
         }
 
         const label = li.querySelector('label')
         label.setAttribute('for', idTodo)
-        label.innerText = title
-
+        label.innerText = todo.title
         const button = li.querySelector('button')
         this.toggle(checkbox)
 
         button.addEventListener('click', e => this.remove(e))
         checkbox.addEventListener('change', e => this.toggle(e.currentTarget))
+
+        this.#element.addEventListener('custom:delete', e => {
+            //console.log(e)
+            //e.preventDefault()
+        })
 
     }
 
@@ -128,6 +147,15 @@ class TodoListItem{
      */
     remove(e){
         e.preventDefault();
+        const event = new CustomEvent('custom:delete', {
+            detail: this.#todo,
+            bubbles: true,
+            cancelable : true
+        })
+        this.#element.dispatchEvent(event)
+        if (event.defaultPrevented){
+            return
+        }
         this.#element.remove()
     }
 
@@ -142,5 +170,13 @@ class TodoListItem{
         }else {
             this.#element.classList.remove('is-completed')
         }
+        const event = new CustomEvent('custom:toggle', {
+            detail: this.#todo,
+            bubbles: true
+            //cancelable : true
+        })
+        this.#element.dispatchEvent(event)
     }
+    
+    
 }
