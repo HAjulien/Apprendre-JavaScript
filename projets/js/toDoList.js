@@ -3,7 +3,13 @@ import { createElement } from "./dom.js";
 import { TodoList } from "./ToDoListClass.js";
 
 try {
-    const todos = await fetchJSON('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    //const todos = await fetchJSON('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    const todosInStorage = localStorage.getItem("todos")?.toString()
+    let todos = []
+    if (todosInStorage) {
+        todos = JSON.parse(todosInStorage)
+        .sort( (a,b) => b.id - a.id)
+    }
     const list = new TodoList(todos)
     const todoList = document.querySelector('#todolist')
     list.appendTo(todoList)

@@ -45,11 +45,15 @@ export class TodoList {
             console.log(todo);
             this.#todos = this.#todos.filter( tache => tache !== todo)
             console.log(this.#todos);
+            this.#onUpdate()
+
         })
         
         this.#listElement.addEventListener('custom:toggle',({detail : todo}) => {
             todo.completed = !todo.completed
             console.log(this.#todos);
+            this.#onUpdate()
+
         })
     }
 
@@ -74,7 +78,13 @@ export class TodoList {
         const item = new TodoListItem(todo)
 
         this.#listElement.prepend(item.element)
+        this.#todos.push(todo)
+        this.#onUpdate()
         form.reset()
+    }
+
+    #onUpdate() {
+        localStorage.setItem("todos", JSON.stringify(this.#todos))
     }
 
     /**
