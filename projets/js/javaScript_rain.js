@@ -86,15 +86,10 @@ function animate(){
         particle.update();
         particle.draw();
     })
-    // for( let i =0; i < particlesArray.length; i++){
-    //     particlesArray[i].update();
-    //     particlesArray[i].draw();
-    // }
-    if( isMovingRight ){
-        title.x -= 5
-    }
-    if(title.baseX - title.x > 100 ) isMovingRight = false;
+
+    if( isMovingRight ) title.x -= 5
     if(isMovingLeft) title.x += 5
+    if(title.baseX - title.x > 100 ) isMovingRight = false;
     if(title.x - title.baseX > -3 ) isMovingLeft = false;
 
     ctx.fillStyle= `hsl(185, 90%, 60%)`;
