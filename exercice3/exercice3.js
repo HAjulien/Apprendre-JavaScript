@@ -85,3 +85,28 @@ function isArrayEgal(){
 }
 
 console.log(isArrayEgal());
+
+//--------------------------------------------------------------------------------------------------------
+function plusGrandDenomimateur(number1, number2) {
+    if(number1 <= 0 || number2 <= 0 ) return 'que des nombres strictement supérieures à 0 autorisé'
+    if (number1 === number2 ) return number1
+
+    let numberMax = Math.max(number1, number2),
+    numberMin= Math.min(number1, number2)
+
+    console.log(numberMax, numberMin);
+
+    let demoninateur = numberMin;
+    console.log(demoninateur);
+
+    while( demoninateur > 0){
+        if ( (numberMax % demoninateur) === 0 && (numberMin % demoninateur) === 0){
+            break
+        }
+        demoninateur--
+    }
+
+    return demoninateur
+}
+
+console.log(plusGrandDenomimateur(6,18));
