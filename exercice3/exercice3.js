@@ -88,10 +88,13 @@ console.log(isArrayEgal());
 
 //--------------------------------------------------------------------------------------------------------
 function plusGrandDenomimateur(number1, number2) {
+    const isNumber = (typeof number1 && typeof number2 === "number")
+    
+    if(!isNumber) return "que des chiffres autorisés"
     if(number1 <= 0 || number2 <= 0 ) return 'que des nombres strictement supérieures à 0 autorisé'
     if (number1 === number2 ) return number1
 
-    let numberMax = Math.max(number1, number2),
+    const numberMax = Math.max(number1, number2),
     numberMin= Math.min(number1, number2)
 
     console.log(numberMax, numberMin);
