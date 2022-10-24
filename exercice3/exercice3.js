@@ -144,8 +144,8 @@ const objetIngredients = [
 const ingredients = document.querySelector('.ingredients')
 const quantiteInput = document.querySelector('#quantite')
 
-function createIngredientList( objet, tagName ){
-    objet.forEach( ({quantite, produit, mesure = ""}) => {
+function createIngredientList( object, tagName ){
+    object.forEach( ({quantite, produit, mesure = ""}) => {
         const li = document.createElement(tagName)
         li.classList.add('ingredient')
         li.innerText = `${produit} : ${(quantite * quantiteInput.value)} ${mesure}`
