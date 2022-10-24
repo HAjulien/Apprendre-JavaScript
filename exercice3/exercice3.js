@@ -112,27 +112,64 @@ function plusGrandDenomimateur(number1, number2) {
 console.log(plusGrandDenomimateur(12,8));
 
 //------------------------------------------------------------------------------
-let arrayIngrediant = [200, 1.2 , 100, 20, 3],
-quantiteValue = 1;
+const objetIngredient = [
+    {
+        produit: 'lait',
+        quantite: 200,
+        mesure: 'ml'
+    },
+    {
+        produit: 'oeuf',
+        quantite: 1,
+    },
+    {
+        produit: 'farine',
+        quantite: 100,
+        mesure: 'gr'
+    },
+    {
+        produit: 'sucre',
+        quantite: 20,
+        mesure: 'gr'
+    },
+    {
+        produit: 'sel',
+        quantite: 3,
+        mesure: 'gr'
+    },
+    
+]
 
-const ingredients = [...document.querySelectorAll('.ingredient span')]
+
+const ingredients = document.querySelector('.ingredients')
 const quantiteInput = document.querySelector('#quantite')
 
-function updateQuantitePerIngrediant(quantiteValue) {
-    ingredients.forEach((ingredient, index) => {
-
-        let number = (arrayIngrediant[index] * quantiteValue).toFixed(1)
-        const isNumberDontHaveDecimal = number.slice(-2) === '.0'
-
-        if (isNumberDontHaveDecimal) number = number.slice(0, -2)
-
-        ingredient.innerText = number
+function createIngredientList( objet, tagName ){
+    objet.forEach( ({quantite, produit, mesure = ""}) => {
+        const li = document.createElement(tagName)
+        li.classList.add('ingredient')
+        li.innerText = `${produit} : ${(quantite * quantiteInput.value)} ${mesure}`
+        ingredients.append(li)
     })
 }
 
-updateQuantitePerIngrediant(quantiteValue)
+function updateQuantitePerIngredient(object, quantiteValue = 3) {
+    const listeIngredient = [...document.querySelectorAll('.ingredient')]
+
+    object.forEach(({quantite, produit, mesure = ""}, index) => {
+
+        let number = (quantite * quantiteValue).toFixed(1)
+        const isNumberDontHaveDecimal = number.slice(-2) === '.0'
+        if (isNumberDontHaveDecimal) number = number.slice(0, -2)
+
+        listeIngredient[index].innerText = `${produit} : ${number} ${mesure}`
+    })
+}
+
+
+createIngredientList(objetIngredient, "li")
 
 quantiteInput.addEventListener('change', function (){
-    updateQuantitePerIngrediant(quantite.value)
+    updateQuantitePerIngredient(objetIngredient, quantite.value)
 });
 
