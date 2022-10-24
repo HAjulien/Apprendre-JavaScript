@@ -111,7 +111,7 @@ function plusGrandDenomimateur(number1, number2) {
 
 console.log(plusGrandDenomimateur(12,8));
 
-//------------------------------------------------------------------------------
+//Création liste ingrédient quantité modifiable------------------------------------------------------------------------------
 const objetIngredients = [
     {
         produit: 'lait',
@@ -153,7 +153,7 @@ function createIngredientList( objet, tagName ){
     })
 }
 
-function updateQuantitePerIngredient(object, quantiteValue = 3) {
+function updateQuantitePerIngredient(object, quantiteValue) {
     const listeIngredient = [...document.querySelectorAll('.ingredient')]
 
     object.forEach(({quantite, produit, mesure = ""}, index) => {
