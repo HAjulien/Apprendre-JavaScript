@@ -87,12 +87,17 @@ function isArrayEgal(){
 console.log(isArrayEgal());
 
 //--------------------------------------------------------------------------------------------------------
-function plusGrandDenomimateur(number1, number2) {
-    const isNumber = (typeof number1 && typeof number2 === "number")
-    
-    if(!isNumber) return "que des chiffres autorisés"
-    if(number1 <= 0 || number2 <= 0 ) return 'que des nombres strictement supérieures à 0 autorisé'
-    if (number1 === number2 ) return number1
+
+const findDenominateur = document.querySelector('.findDenominateur'),
+demoninateurText = document.querySelector('.denominateur')
+number1Input = document.querySelector('#nombre1'),
+number2Input = document.querySelector('#nombre2')
+
+function plusGrandDenominateur(number1, number2) {
+
+    if(isNaN(number1) || isNaN(number2)) return demoninateurText.innerText = "que des chiffres autorisés"
+    if(number1 <= 0 || number2 <= 0 ) return demoninateurText.innerText ='que des nombres strictement supérieures à 0 autorisé'
+    if (number1 === number2 ) return demoninateurText.innerText = `Le plus grand dénomateur est ${number1}`
 
     const numberMax = Math.max(number1, number2),
     numberMin= Math.min(number1, number2)
@@ -106,12 +111,16 @@ function plusGrandDenomimateur(number1, number2) {
         demoninateur--
     }
 
-    return demoninateur
+    return demoninateurText.innerText = `Le plus grand dénomateur est ${demoninateur}`
 }
 
-console.log(plusGrandDenomimateur(12,8));
+findDenominateur.addEventListener('click', function (){
+    plusGrandDenominateur( +(number1Input.value), +(number2Input.value));
 
-//Création liste ingrédient quantité modifiable------------------------------------------------------------------------------
+});
+
+
+//Création liste ingrédient quantité modifiable---------------------------------------------------
 const objetIngredients = [
     {
         produit: 'lait',
@@ -121,6 +130,7 @@ const objetIngredients = [
     {
         produit: 'oeuf',
         quantite: 1,
+        mesure: 'gros calibre'
     },
     {
         produit: 'farine',
@@ -137,6 +147,10 @@ const objetIngredients = [
         quantite: 3,
         mesure: 'gr'
     },
+    {
+        produit : 'feuille de menthe',
+        quantite: 0.5
+    }
     
 ]
 
