@@ -112,7 +112,7 @@ function plusGrandDenomimateur(number1, number2) {
 console.log(plusGrandDenomimateur(12,8));
 
 //------------------------------------------------------------------------------
-const objetIngredient = [
+const objetIngredients = [
     {
         produit: 'lait',
         quantite: 200,
@@ -167,9 +167,9 @@ function updateQuantitePerIngredient(object, quantiteValue = 3) {
 }
 
 
-createIngredientList(objetIngredient, "li")
+createIngredientList(objetIngredients, "li")
 
 quantiteInput.addEventListener('change', function (){
-    updateQuantitePerIngredient(objetIngredient, quantite.value)
+    updateQuantitePerIngredient(objetIngredients, quantite.value)
 });
 
