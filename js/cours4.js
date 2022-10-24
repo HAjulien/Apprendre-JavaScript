@@ -121,3 +121,44 @@ let myArray = ["c'est", "un", "test"];
 myArray.forEach(element => console.log('\n' + element));
 
 
+//convert array to object------------------------------------------------
+
+const personalityArray = ['alan', 'tim', 'robert', 'alex']
+
+//with loop
+const personalityObjet ={}
+
+personalityArray.forEach( (person, index) =>{
+    personalityObjet['key'+ index] = person
+})
+
+console.log(personalityObjet);
+
+//2eme methode
+
+const personalityObjet2 = Object.assign({}, personalityArray)
+console.log(personalityObjet2);
+
+//reduce
+
+const personalityObjet3 = personalityArray.reduce((acc, person, index ) => {
+    return {...acc, ['key' + index] : person}
+}, {})
+console.log(personalityObjet3);
+
+//spread operator
+
+const personalityObjet4 = {...personalityArray}
+console.log(personalityObjet4)
+
+//object to array----------------------------------------------------------------------
+
+const arrayToObject = [
+    ['firstName', 'arthur'],
+    ['lastName', 'Jean'],
+    ['sport', ['natation', 'handball']]
+]
+
+const objectFromArray = Object.fromEntries(arrayToObject)
+
+console.log(objectFromArray);
