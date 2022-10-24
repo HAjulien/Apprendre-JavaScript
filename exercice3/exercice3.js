@@ -114,17 +114,17 @@ console.log(plusGrandDenomimateur(12,8));
 //------------------------------------------------------------------------------
 let arrayIngrediant = [200, 1.2 , 100, 20, 3],
 quantiteValue = 1;
-const ingredients = [...document.querySelectorAll('.ingredient span')]
 
+const ingredients = [...document.querySelectorAll('.ingredient span')]
 const quantiteInput = document.querySelector('#quantite')
 
 function updateQuantitePerIngrediant(quantiteValue) {
     ingredients.forEach((ingredient, index) => {
 
         let number = (arrayIngrediant[index] * quantiteValue).toFixed(1)
-        const isNumberHaveDecimal = number.slice(-2) === '.0'
+        const isNumberDontHaveDecimal = number.slice(-2) === '.0'
 
-        if (isNumberHaveDecimal) number = number.slice(0, -2)
+        if (isNumberDontHaveDecimal) number = number.slice(0, -2)
 
         ingredient.innerText = number
     })
