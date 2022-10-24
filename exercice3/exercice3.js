@@ -56,8 +56,8 @@ const getLocalStorageVariable = (key) =>{
 
 const btn = document.querySelector('.btn');
 
-getLocalStorageVariable("nom");
-console.log(localStorage.getItem("nom"));
+//getLocalStorageVariable("nom");
+//console.log(localStorage.getItem("nom"));
 
 
 btn.addEventListener("click", () => {
@@ -97,10 +97,7 @@ function plusGrandDenomimateur(number1, number2) {
     const numberMax = Math.max(number1, number2),
     numberMin= Math.min(number1, number2)
 
-    console.log(numberMax, numberMin);
-
     let demoninateur = numberMin;
-    console.log(demoninateur);
 
     while( demoninateur > 0){
         if ( (numberMax % demoninateur) === 0 && (numberMin % demoninateur) === 0){
@@ -112,4 +109,30 @@ function plusGrandDenomimateur(number1, number2) {
     return demoninateur
 }
 
-console.log(plusGrandDenomimateur(6,18));
+console.log(plusGrandDenomimateur(12,8));
+
+//------------------------------------------------------------------------------
+let arrayIngrediant = [200, 1.2 , 100, 20, 3],
+quantiteValue = 1;
+const ingredients = [...document.querySelectorAll('.ingredient span')]
+
+const quantiteInput = document.querySelector('#quantite')
+
+function updateQuantitePerIngrediant(quantiteValue) {
+    ingredients.forEach((ingredient, index) => {
+
+        let number = (arrayIngrediant[index] * quantiteValue).toFixed(1)
+        const isNumberHaveDecimal = number.slice(-2) === '.0'
+
+        if (isNumberHaveDecimal) number = number.slice(0, -2)
+
+        ingredient.innerText = number
+    })
+}
+
+updateQuantitePerIngrediant(quantiteValue)
+
+quantiteInput.addEventListener('change', function (){
+    updateQuantitePerIngrediant(quantite.value)
+});
+
