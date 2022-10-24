@@ -153,12 +153,12 @@ function createIngredientList( object, tagName ){
     })
 }
 
-function updateQuantitePerIngredient(object, quantiteValue) {
+function updateQuantitePerIngredient(object, valueInput) {
     const listeIngredient = [...document.querySelectorAll('.ingredient')]
 
     object.forEach(({quantite, produit, mesure = ""}, index) => {
 
-        let number = (quantite * quantiteValue).toFixed(1)
+        let number = (quantite * valueInput).toFixed(1)
         const isNumberDontHaveDecimal = number.slice(-2) === '.0'
         if (isNumberDontHaveDecimal) number = number.slice(0, -2)
 
