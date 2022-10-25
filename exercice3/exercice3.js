@@ -187,3 +187,32 @@ quantiteInput.addEventListener('change', function (){
     updateQuantitePerIngredient(objetIngredients, quantite.value)
 });
 
+//NB ROMAIN---------------------------------------------------------------------------------------------
+const nbRomainDef = {
+    I : 1,
+    V :5,
+    X :10,
+    L : 50,
+    C : 100,
+    D: 500,
+    M: 1000
+}
+
+console.log(nbRomainDef.V);
+
+function nbRomainToInt (nbRomain){
+    let sum = 0
+    for (let index = 0; index < nbRomain.length ; index++ ){
+
+        let isLowerThanNextNumber = nbRomainDef[nbRomain[index]] < nbRomainDef[nbRomain[index + 1]]
+
+        if (isLowerThanNextNumber) {
+            sum -= nbRomainDef[nbRomain[index]] 
+        }else{
+            sum += nbRomainDef[nbRomain[index]] 
+        }
+    }
+    return sum
+}
+
+console.log(nbRomainToInt ("MDXLV"))
