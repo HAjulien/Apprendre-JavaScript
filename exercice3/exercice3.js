@@ -198,8 +198,7 @@ const nbRomainDef = {
     M: 1000
 }
 
-console.log(nbRomainDef.V);
-
+//1er facon de faire
 function nbRomainToInt (nbRomain){
     let sum = 0
     for (let index = 0; index < nbRomain.length ; index++ ){
@@ -215,4 +214,18 @@ function nbRomainToInt (nbRomain){
     return sum
 }
 
-console.log(nbRomainToInt ("MDXLV"))
+//2eme facon de faire
+
+function nbRomainToIntWithReduce (nbRomain){
+    const array = nbRomain.split('')
+    
+    const sum = array.reduce( (acc, ele, index) => {
+        let isLowerThanNextNumber = nbRomainDef[array[index]] < nbRomainDef[array[index + 1]]
+        if (isLowerThanNextNumber) return acc -= nbRomainDef[ele]
+        return  acc += nbRomainDef[ele]
+    },0 )
+    return sum
+}
+
+console.log(nbRomainToInt ("MCXLIV"))
+console.log(nbRomainToIntWithReduce ("MCXLIV"))
