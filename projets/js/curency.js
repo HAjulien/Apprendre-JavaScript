@@ -45,9 +45,10 @@ getButton.addEventListener("click", e =>{
 
 exchangeIcon.addEventListener("click", ()=>{
 
-    let tempCode = fromCurrency.value;  //temporary currency code of FROM drop list stock inside the variable
-    fromCurrency.value = toCurrency.value;
-    toCurrency.value = tempCode;
+    // let tempCode = fromCurrency.value;  //temporary currency code of FROM drop list stock inside the variable
+    // fromCurrency.value = toCurrency.value;
+    // toCurrency.value = tempCode;
+    [fromCurrency.value, toCurrency.value] = [toCurrency.value, fromCurrency.value]
     loadFlag(fromCurrency);
     loadFlag(toCurrency);
     getExchangeRate();
