@@ -86,7 +86,7 @@ function isArrayEgal(){
 
 console.log(isArrayEgal());
 
-//--------------------------------------------------------------------------------------------------------
+//Dénominateur commun le plus grand--------------------------------------------------------------------------------------------------------
 
 const findDenominateur = document.querySelector('.findDenominateur'),
 demoninateurText = document.querySelector('.denominateur')
@@ -120,7 +120,7 @@ findDenominateur.addEventListener('click', function (){
 });
 
 
-//Création liste ingrédient quantité modifiable---------------------------------------------------
+//Création liste ingrédient quantité modifiable à partir d'un JSON---------------------------------------------------
 const objetIngredients = [
     {
         produit: 'lait',
@@ -229,3 +229,25 @@ function nbRomainToIntWithReduce (nbRomain){
 
 console.log(nbRomainToInt ("MCXLIV"))
 console.log(nbRomainToIntWithReduce ("MCXLIV"))
+
+
+//chiffre que augmente jusqu'à la valeur choisi (impossible de l'arreter) ------------------------------------------------------------------------------------------------------------------------------------
+
+const numberInput = document.querySelector('#number'),
+nbIncreaseParagraphe = document.querySelector('.nbIncrease'),
+btnNbIncrease = document.querySelector('.btnNbIncrease')
+
+function increasingNumber(numberMax, numberMin) {
+    if (isNaN(numberMax) || isNaN(numberMin)) return nbIncreaseParagraphe.innerText = 'veuillez indiquer un nombre valide'
+    if (numberMin >= numberMax) return null
+
+    numberMin++;
+    nbIncreaseParagraphe.innerText = numberMin
+    setTimeout(increasingNumber,10, numberMax, numberMin)
+}
+
+btnNbIncrease.addEventListener('click', function (){
+    console.log( +numberInput.value);
+    let numberMin = 0;
+    increasingNumber(+numberInput.value, numberMin)
+});
