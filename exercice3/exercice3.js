@@ -230,6 +230,36 @@ function nbRomainToIntWithReduce (nbRomain){
 console.log(nbRomainToInt ("MCXLIV"))
 console.log(nbRomainToIntWithReduce ("MCXLIV"))
 
+//distributeur------------------------------------------------------------------------------------------
+
+const distributeur = [500, 200, 100, 50, 20, 10, 5, 2, 1]
+
+/**
+ * @param {number} amount
+ * @returns {object}
+ */
+function getBillets (amount) {
+    const isAmountNotInteger = !Number.isInteger(amount)
+
+    if (isAmountNotInteger) return 'le montant doit être un chiffre entier'
+    if (amount <= 0) return 'le montant doit être supérieur à 0'
+    
+    const billetsAmount = distributeur.reduce( (acc, billet) => {
+        if (amount - billet < 0) return acc
+
+        let quotient = Math.floor( amount / billet )
+        amount -= quotient * billet
+        
+        return acc = {...acc, [`${billet} euro`] : quotient} 
+    },{})
+
+    return billetsAmount
+}
+
+const monRetrait = getBillets(123)
+
+console.log(monRetrait);
+
 
 //chiffre que augmente jusqu'à la valeur choisi (impossible de l'arreter) ------------------------------------------------------------------------------------------------------------------------------------
 
