@@ -7,6 +7,21 @@ function inverse(){
 
 // inverse();
 
+//hideString----------------------------------------------------------------------------------------------
+
+/**
+ * 
+ * @param {string} number 
+ * @param {number} lastNumbersVisibles 
+ * @returns {string}
+ */
+function hideCreditCard(number, lastXNumbersVisibles) {
+    const numberNoTiret = number.replace(/-/g, '');
+    return numberNoTiret.slice(-lastXNumbersVisibles).padStart(numberNoTiret.length, '*')
+}
+
+console.log(hideCreditCard("5555-3333-0909", 4));
+
 //---------------------------------------------------------------------------------------------------------------------------------------
 
 function alphabetique(){
