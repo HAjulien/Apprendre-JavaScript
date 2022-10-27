@@ -120,7 +120,7 @@ findDenominateur.addEventListener('click', function (){
 });
 
 
-//Création liste ingrédient quantité modifiable à partir d'un JSON---------------------------------------------------
+//Création liste ingrédient quantité modifiable à partir d'un array object---------------------------------------------------
 const objetIngredients = [
     {
         produit: 'lait',
