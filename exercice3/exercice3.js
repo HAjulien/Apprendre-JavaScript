@@ -89,7 +89,7 @@ console.log(isArrayEgal());
 //Dénominateur commun le plus grand--------------------------------------------------------------------------------------------------------
 
 const findDenominateur = document.querySelector('.findDenominateur'),
-demoninateurText = document.querySelector('.denominateur')
+demoninateurText = document.querySelector('.denominateur'),
 number1Input = document.querySelector('#nombre1'),
 number2Input = document.querySelector('#nombre2')
 
