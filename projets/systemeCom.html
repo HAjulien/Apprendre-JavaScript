@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systeme commentaires en JS avec intersection Observer et fetch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/systemeCom.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <h1>Titre de notre article</h1>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident atque sed nihil soluta rem, totam
+                ipsum et perspiciatis, alias molestias temporibus aut rerum? Facere facilis consectetur unde culpa,
+                ipsam reiciendis!
+            </p>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatibus ad? Quis, architecto eum
+                    corrupti cum sit perspiciatis quo quam aliquid, ad quae voluptas quasi porro ullam obcaecati
+                    voluptate unde?</li>
+                <li>Laborum eaque, inventore recusandae voluptate maxime tenetur deleniti nisi perferendis, voluptatibus
+                    eligendi sapiente id? Maxime, similique? Pariatur doloremque dolorem numquam enim recusandae
+                    incidunt harum nobis, minima praesentium aspernatur consectetur voluptate?</li>
+                <li>Suscipit hic pariatur mollitia, odio quaerat iste minus repudiandae a, rerum tempore praesentium
+                    recusandae qui aliquam quidem sed saepe laborum adipisci exercitationem est cum. Porro eaque illum
+                    illo obcaecati distinctio!</li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quam beatae eos, eaque suscipit quos
+                fugiat. Culpa eos, eius quasi unde fugit facilis ipsa provident pariatur exercitationem officia impedit
+                iste.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis accusamus asperiores aperiam aut, rem
+                voluptatem consequatur. Fuga voluptates et quidem nesciunt, sint ex dolore eos veniam quo numquam est?
+                Dignissimos.
+            </p>
+
+            <h2>Ipsum dolor sit amet.</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi vel nostrum amet enim consectetur
+                doloremque. Sed sapiente deserunt vitae quibusdam quaerat amet deleniti minima vero autem. Vero
+                praesentium quam tempore?</p>
+
+            <p>Facilis at sapiente voluptates assumenda quia provident earum blanditiis excepturi similique vel nobis
+                sunt enim aut itaque dolor iste asperiores obcaecati doloremque voluptatem nemo, ea laborum molestiae!
+                Impedit, ex non?</p>
+
+            <h2>Sed sapiente deserunt</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quod dicta veniam nobis dolores rerum,
+                tenetur est porro illum numquam ipsam suscipit minima incidunt velit nesciunt saepe consequatur
+                accusamus excepturi?</p>
+            <p>Eaque accusamus quo in consectetur enim dolorem sequi doloremque itaque repellendus! Voluptatum porro
+                illum maiores laboriosam neque, eum minima reprehenderit mollitia delectus, animi aspernatur, obcaecati
+                sequi dolorum vitae repellendus! Numquam.</p>
+
+            <hr>
+
+            <h2>Les commentaires</h2>
+
+            <template id="alert">
+                <div class="alert alert-dismissible fade show" role="alert">
+                    <div class="js-text"></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </template>
+
+            <form 
+                action="" 
+                class="js-form-fetch"
+                data-endpoint="https://jsonplaceholder.typicode.com/comments"
+                data-template="#comment"
+                data-target=".comments"
+                data-elements='{"name": ".js-username", "body": ".js-content"}'
+            >
+                <div class="row mb-2">
+                    <div class="col-sm">
+                        <input name="name" type="text" class="form-control" placeholder="Votre pseudo">
+                    </div>
+                    <div class="col-sm">
+                        <input name="email" type="text" class="form-control"
+                            placeholder="Votre email">
+                    </div>
+                </div>
+                <textarea name="body" class="form-control mb-2" style="min-height: 150px;"></textarea>
+                <button class="btn btn-primary">Envoyer</button>
+            </form>
+
+            <hr>
+
+            <div class="comments"></div>
+
+            <template id="comment">
+                <article class="mb-4">
+                    <div class="mb-1"><strong class="js-username"></strong></span></div>
+                    <p class="js-content"></p>
+                </article>
+            </template>
+
+            <div 
+                data-endpoint="https://jsonplaceholder.typicode.com/comments?_limit=10"
+                data-template="#comment"
+                data-target=".comments"
+                data-elements='{"name": ".js-username", "body": ".js-content"}'
+                class="text-center js-infinite-pagination">
+                <div class="spinner-border" role="status"></div>
+            </div>
+
+        </article>
+    </div>
+
+</body>
+
+</html>
