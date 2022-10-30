@@ -9,7 +9,13 @@
 
 :root{
     --background-color: rgb(6, 11, 25);
+    --selection-color: rgb(188, 191, 201);
     --border-color: rgba(255, 255, 255, .1)
+}
+
+::selection{
+    background-color: var(--selection-color);
+    color: var(--background-color);
 }
 
 body{
@@ -144,6 +150,11 @@ article .article-title h1{
 
 article .article-title ion-icon{
     font-size: 6rem;
+    transition: .2s;
+}
+article .article-title ion-icon:hover{
+    transform: rotate(180deg);
+    transition: .2s;
 }
 
 article .article-nav {
@@ -158,6 +169,12 @@ article .article-nav button{
     font-size: 5rem;
     color: white;
     cursor: pointer;
+    transition: scale .2s;
+}
+
+article .article-nav button:hover{
+    scale: 1.3;
+    transition: scale .2s;
 }
 
 main article[data-status="inactive"]{
@@ -171,13 +188,13 @@ main article[data-status="inactive-start-left"]{
 }
 main article[data-status="inactive-left"]{
     transform: translateX(-100%);
-    transition: all .6s ease ;
+    transition: all .4s ease ;
 }
 main article[data-status="inactive-right"]{
     transform: translateX(100%);
-    transition: all .6s ease ;
+    transition: all .4s ease ;
 }
 main article[data-status="active"]{
-    transition: all .6s ease ;
+    transition: all .4s ease ;
 }
 
