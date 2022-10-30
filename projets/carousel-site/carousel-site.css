@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root{
+    --background-color: rgb(6, 11, 25);
+    --border-color: rgba(255, 255, 255, .1)
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-color);
+    overflow: hidden;
+    font-family: "Rubik", sans-serif;
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--border-color);
+
+}
+
+nav .nav-section{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    border-left: 1px solid var(--border-color);
+}
+
+nav .nav-section:not(:first-child){
+    justify-content: center;
+}
+nav .nav-section:not(:first-child):not(:nth-child(2)){
+    flex-grow: 1;
+}
+
+nav a {
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+}
+
+nav .nav-logo, nav .nav-link{
+    flex-basis: calc( 100% / 3);
+}
+
+nav .nav-link{
+    gap: 6rem;
+}
+
+nav .nav-social{
+    gap: 3rem
+}
+
+.nav-logo a ion-icon {
+    font-size: 2.5rem;
+}
+
+main{
+    height: 100%;
+    position: relative;
+}
+
+main article {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+}
+
+main article div {
+    height: 100%;
+}
+
+main article div:nth-child(even){
+    border-left: 1px solid var(--border-color);
+}
+
+.article-title, .article-nav{
+    border-top: 1px solid var(--border-color);
+}
+
+article .article-image.image-1{
+    background-image: url("https://images.unsplash.com/photo-1577985051167-0d49eec21977?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1489&q=80");
+}
+article .article-image.image-2{
+    background-image: url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+article .article-image.image-3{
+    background-image: url("https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+}
+article .article-image.image-4{
+    background-image: url("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+}
+article .article-image{
+    background-position: center;
+    background-size: cover;
+}
+
+
+article .article-description {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    padding: 4rem 2rem;
+}
+article .article-description p{
+    font-size: 1.5rem;
+    text-indent: .7em;
+    color: white;
+}
+
+article .article-description p::first-letter{
+    color: red;
+    font-size: 2.2rem;
+}
+
+article .article-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 35px;
+    color: #ffffff;
+    font-size: 2.9rem;
+}
+
+article .article-title h1{
+    flex-basis: 50%;
+}
+
+article .article-title ion-icon{
+    font-size: 6rem;
+}
+
+article .article-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+article .article-nav button{
+    background-color: var(--background-color);
+    border: none;
+    font-size: 5rem;
+    color: white;
+    cursor: pointer;
+}
+
+main article[data-status="inactive"]{
+    transform: translateX(100%)
+}
+main article[data-status="inactive-start-right"]{
+    transform: translateX(100%);
+}
+main article[data-status="inactive-start-left"]{
+    transform: translateX(-100%);
+}
+main article[data-status="inactive-left"]{
+    transform: translateX(-100%);
+    transition: all .6s ease ;
+}
+main article[data-status="inactive-right"]{
+    transform: translateX(100%);
+    transition: all .6s ease ;
+}
+main article[data-status="active"]{
+    transition: all .6s ease ;
+}
+
