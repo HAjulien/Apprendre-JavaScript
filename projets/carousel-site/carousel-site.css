@@ -24,13 +24,13 @@ body{
     height: 100vh;
     width: 100vw;
     background-color: var(--background-color);
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: "Rubik", sans-serif;
 }
 
 nav{
     display: flex;
-    width: 100%;
+    max-width: 100vw;
     border: 1px solid var(--border-color);
 
 }
@@ -39,7 +39,7 @@ nav .nav-section{
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 3rem 2rem;
+    padding:  2rem;
     border-left: 1px solid var(--border-color);
 }
 
@@ -75,6 +75,7 @@ nav .nav-social{
 
 main{
     height: 100%;
+    width: 100vw;
     position: relative;
 }
 
@@ -84,6 +85,7 @@ main article {
     top: 0px;
     display: grid;
     height: 100%;
+    width: 100vw;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 2fr 1fr;
 }
@@ -172,7 +174,7 @@ article .article-nav button{
     transition: scale .2s;
 }
 
-article .article-nav button:hover{
+article .article-nav button:hover ion-icon{
     scale: 1.3;
     transition: scale .2s;
 }
@@ -196,5 +198,45 @@ main article[data-status="inactive-right"]{
 }
 main article[data-status="active"]{
     transition: all .4s ease ;
+}
+
+@media screen and (max-width:1000px) {
+
+    nav a {
+        font-size: 1.2rem;
+    }
+    nav .nav-link{
+        gap: 3rem;
+    }
+    
+    nav .nav-social{
+        gap: 2rem
+    }
+    main article {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    
+    article .article-image{
+        min-height: 600px;
+        order: 1;
+    }
+    article .article-description{
+        order: 4;
+    }
+    article .article-title{
+        font-size: 2rem;
+        padding: 15px;
+        order: 3;
+    }
+    article .article-nav{
+        order: 2;
+    }
+
+    article .article-nav button{
+        font-size: 3rem;
+        margin-top: 20px;
+        padding: 5px 5px 0 5px;
+    }
 }
 
