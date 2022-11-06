@@ -5,7 +5,7 @@ let observer = null
 /**
  * 
  * @param {HTMLElement} ele 
- * @returns 
+ * @returns {void}
  */
 const actived = (ele) => {
     const id = ele.getAttribute('id')
