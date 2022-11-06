@@ -1,0 +1,15 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    color:#4a5568;
+    background-color: rgb(229, 232, 38);
+    
+}
+
+body{
+    padding-top: 100px;
+}
