@@ -139,9 +139,9 @@ function sleep() {
         console.log(fruit);
     }
 
-    await asynchrone en parallele non bloquant
+    await asynchrone en parallèle non bloquant
 
-    forEach ne fonxtionne pas car il ne renvoie rien void
+    forEach ne fonctionne pas car il ne renvoie rien void
     fruits.forEach( async()=> {
         await sleep()
         console.log(fruit);
