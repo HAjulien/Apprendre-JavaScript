@@ -73,7 +73,7 @@ submit = document.querySelector('.submit'),
 save = document.querySelector('.save'),
 suppressAllToDo = document.querySelector('.suppressAllToDo'),
 toDoInput = document.querySelector('.toDo'),
-BTN_SUPRESS_INNERTEXT_LENGHT = -9;
+BTN_SUPPRESS_INNERTEXT_LENGHT = -9;
 
 const createToDo = (value) => {
     const newToDo = document.createElement("li");
@@ -81,11 +81,11 @@ const createToDo = (value) => {
     newToDo.style.margin = '10px 0';
     newToDo.classList.add('todo');
 
-    const supress = document.createElement("button");
-    supress.innerText = 'supprimer';
-    supress.style.margin = '0 5px';
+    const suppress = document.createElement("button");
+    suppress.innerText = 'supprimer';
+    suppress.style.margin = '0 5px';
 
-    newToDo.appendChild(supress);
+    newToDo.appendChild(suppress);
     list.appendChild(newToDo);
 }
 
@@ -116,7 +116,7 @@ toDoInput.addEventListener('keydown', (e)=>{
 
 save.addEventListener('click', () =>{
     const todos = [...document.querySelectorAll('.todo')];
-    let listTodos = todos.map(todo => todo.textContent.slice(0, BTN_SUPRESS_INNERTEXT_LENGHT))
+    let listTodos = todos.map(todo => todo.textContent.slice(0, BTN_SUPPRESS_INNERTEXT_LENGHT))
     //console.log(JSON.stringify(listTodos));
     localStorage.setItem('todos', JSON.stringify(listTodos))
 });

@@ -162,3 +162,4 @@ const arrayToObject = [
 const objectFromArray = Object.fromEntries(arrayToObject)
 
 console.log(objectFromArray);
+

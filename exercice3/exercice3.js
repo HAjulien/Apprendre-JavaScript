@@ -84,7 +84,7 @@ btn.addEventListener("click", () => {
 const arrayTest1 = [ "a", "b", "c", "d", "a", 2, 12]
 const arrayTest2 = ["b", "a", "c", "d","a", 12, 2]
 
-function isArrayEgal(){
+function isArrayEqual(){
     let array1ToString = JSON.stringify(arrayTest1.sort());
     let array2ToString = JSON.stringify(arrayTest2.sort());
     console.log( array1ToString);
@@ -99,7 +99,7 @@ function isArrayEgal(){
     }
 }
 
-console.log(isArrayEgal());
+console.log(isArrayEqual());
 
 //Dénominateur commun le plus grand--------------------------------------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ function plusGrandDenominateur(number1, number2) {
         demoninateur--
     }
 
-    return demoninateurText.innerText = `Le plus grand dénomateur est ${demoninateur}`
+    return demoninateurText.innerText = `Le plus grand dénominateur est ${demoninateur}`
 }
 
 findDenominateur.addEventListener('click', function (){
